@@ -1,30 +1,24 @@
-<main class="container">
-  <h2>Cadastrar Livro</h2>
-
-  <form (submit)="incluir($event)" ngNoForm>
+<main>
+  <h2>Incluir Livro</h2>
+  <form (submit)="incluir()" ngNativeValidate>
     <div class="form-group">
-      <label for="tituloInput">Título:</label>
-      <input type="text" id="tituloInput" class="form-control" required [(ngModel)]="livro.titulo">
+      <label for="titulo">Título:</label>
+      <input type="text" class="form-control" id="titulo" required [(ngModel)]="livro.titulo" name="titulo">
     </div>
-
     <div class="form-group">
-      <label for="resumoTextarea">Resumo:</label>
-      <textarea id="resumoTextarea" class="form-control" rows="3" [(ngModel)]="livro.resumo"></textarea>
+      <label for="resumo">Resumo:</label>
+      <textarea class="form-control" id="resumo" rows="4" [(ngModel)]="livro.resumo" name="resumo"></textarea>
     </div>
-
     <div class="form-group">
-      <label for="editoraSelect">Editora:</label>
-      <select id="editoraSelect" class="form-control" required [(ngModel)]="livro.codEditora">
+      <label for="editora">Editora:</label>
+      <select class="form-control" id="editora" required [(ngModel)]="livro.codEditora" name="editora">
         <option *ngFor="let editora of editoras" [value]="editora.codEditora">{{ editora.nome }}</option>
       </select>
     </div>
-    
-
     <div class="form-group">
-      <label for="autoresTextarea">Autores:</label>
-      <textarea id="autoresTextarea" class="form-control" rows="3" [(ngModel)]="autoresForm"></textarea>
+      <label for="autores">Autores:</label>
+      <textarea class="form-control" id="autores" rows="4" [(ngModel)]="autoresForm" name="autores"></textarea>
     </div>
-
-    <button type="submit" class="btn btn-primary">Cadastrar</button>
+    <button type="submit" class="btn btn-primary">Incluir</button>
   </form>
 </main>
